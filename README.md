@@ -1,4 +1,4 @@
-# House of Chic ✨�
+# House of Chic ✨
 
 A modern, responsive e-commerce website for luxury jewelry and fine accessories.
 
