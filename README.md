@@ -102,9 +102,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 Support
 
 For support, please:
-- Check our [FAQs](faqs.html)
-- Visit our [Contact Page](contact.html) for premium customer service
-- Schedule a virtual consultation
 - Submit issues through GitHub
 
 ---
