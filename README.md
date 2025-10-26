@@ -1,10 +1,10 @@
 # House of Chic ✨
 
-A modern, responsive e-commerce website for luxury jewelry and fine accessories.
+A modern, responsive e-commerce website for luxury jewellery and fine accessories.
 
 ## 📋 Overview
 
-House of Chic is a sophisticated online jewelry boutique that offers an elegant shopping experience for jewelry enthusiasts. The website features a clean, modern design with easy navigation and comprehensive product showcasing, bringing the brilliance of fine jewelry to the digital space.
+House of Chic is a sophisticated online jewellery boutique that offers an elegant shopping experience for jewellery enthusiasts. The website features a clean, modern design with easy navigation and comprehensive product showcasing, bringing the brilliance of fine jewellery to the digital space.
 
 ## 🚀 Features
 
@@ -12,7 +12,7 @@ House of Chic is a sophisticated online jewelry boutique that offers an elegant 
 - **User Authentication**: Secure login system for customer accounts
 - **Shopping Cart**: Interactive cart functionality with real-time updates
 - **Product Collections**: 
-  - Fine Jewelry Collections
+  - Fine Jewellery Collections
   - Precious Gemstones
   - Designer Collections
   - Special Occasions
@@ -42,7 +42,7 @@ House of Chic is a sophisticated online jewelry boutique that offers an elegant 
 ```
 ├── index.html          # Home page with featured collections
 ├── login.html          # Secure user authentication
-├── collections.html    # Jewelry collections showcase
+├── collections.html    # Jewellery collections showcase
 ├── cart.html          # Shopping cart
 ├── checkout.html      # Secure checkout process
 ├── about.html         # Brand story and heritage
@@ -61,7 +61,7 @@ House of Chic is a sophisticated online jewelry boutique that offers an elegant 
 ## 🎯 Key Pages
 
 - **Home Page**: Featured collections, new arrivals, and signature pieces
-- **Collections**: Browse through different jewelry categories
+- **Collections**: Browse through different jewellery categories
 - **Cart & Checkout**: Secure purchasing process with insurance options
 - **User Account**: Personal dashboard for orders and preferences
 - **Support Pages**: FAQs, shipping info, and size guides
