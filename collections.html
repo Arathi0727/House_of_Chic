@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - House of Chic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .collections-header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .collections-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+        
+        .filter-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+        }
+        
+        .price-range {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        
+        .price-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+        }
+        
+        :root {
+            --primary-rgb: 255, 138, 0;
+        }
+        
+        .sort-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Dropdown dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .sort-select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='white' class='w-4 h-4'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+            }
+        }
+        
+        .sort-select {
+            min-width: 180px;
+            padding: 0.625rem 2.5rem 0.625rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background-color: var(--card);
+            color: var(--foreground);
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' class='w-4 h-4'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        /* Style the dropdown options */
+        .sort-select option {
+            background-color: var(--background);
+            color: var(--foreground);
+            padding: 8px;
+        }
+        
+        .sort-select:hover {
+            border-color: var(--primary);
+            background-color: var(--accent);
+        }
+        
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.2);
+        }
+        
+        @media (max-width: 1024px) {
+            .collections-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="menu-icon">☰</span>
+                </button>
+                <h1 class="logo"><a href="index.html">House of Chic</a></h1>
+                
+                <nav class="nav" id="mainNav">
+                    <a href="collections.html" class="nav-link active">Collections</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <a href="login.html" class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                    <a href="cart.html" class="icon-btn cart-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge">0</span>
+                    </a>
+                    <button class="icon-btn" id="themeToggle">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="collections-header">
+            <h1 class="section-title">Our Collections</h1>
+            <p class="text-muted">Discover our exquisite range of handcrafted Jewellery</p>
+        </div>
+
+        <div class="collections-layout">
+            <aside class="sidebar">
+                <div class="filter-section">
+                    <h3 class="filter-title">Search</h3>
+                    <input type="text" class="search-box" placeholder="Search for Jewellery..." id="searchInput">
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Categories</h3>
+                    <div class="filter-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="necklaces">
+                            Necklaces
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="earrings">
+                            Earrings
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="rings">
+                            Rings
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="bracelets">
+                            Bracelets
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Price Range</h3>
+                    <input type="range" class="price-range" min="0" max="100000" step="1000" id="priceRange" value="100000">
+                    <div class="price-labels">
+                        <span>₹0</span>
+                        <span id="priceValue">All</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline" style="width: 100%; background: var(--background); color: var(--foreground); border: 1px solid var(--border);" id="clearFilters">
+                    Clear Filters
+                </button>
+            </aside>
+
+            <div>
+                <div class="sort-bar">
+                    <p class="text-muted" id="productCount">8 products</p>
+                    <select class="sort-select" id="sortSelect" aria-label="Sort products">
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price Low to High</option>
+                        <option value="price-high">Price High to Low</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="discount">More Discount</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-3" id="productsGrid">
+                    <!-- Products will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4 footer-grid">
+                <div>
+                    <h3 class="footer-title"><a href="index.html">House of Chic</a></h3>
+                    <p class="footer-text">Exquisite handcrafted Indian Jewellery blending tradition with modern elegance.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/_houseofchic__" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Customer Service</h4>
+                                        <ul class="footer-links">
+                        <li><a href="shipping-info.html">Shipping Info</a></li>
+                        <li><a href="returns-exchanges.html">Returns & Exchanges</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Subscribe for exclusive offers</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary" style="background: var(--primary); color: var(--primary-foreground);">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 House of Chic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Sample products data
+        const products = [
+            { id: 1, name: 'Golden Heritage Necklace', price: 45000, image: 'attached_assets/attached_assets/generated_images/Gold_necklace_product_photo_4c2bd0d6.png', category: 'necklaces', isNew: true },
+            { id: 2, name: 'Diamond Elegance Earrings', price: 38000, image: 'attached_assets/attached_assets/generated_images/Gold_earrings_product_photo_c96c321e.png', category: 'earrings', isNew: true },
+            { id: 3, name: 'Royal Diamond Ring', price: 65000, image: 'attached_assets/attached_assets/generated_images/Diamond_ring_product_photo_f293ef10.png', category: 'rings' },
+            { id: 4, name: 'Traditional Gold Bracelet', price: 28000, image: 'attached_assets/attached_assets/generated_images/Gold_bracelet_product_photo_ca04a2ee.png', category: 'bracelets' },
+            { id: 5, name: 'Pearl Elegance Necklace', price: 52000, image: 'attached_assets/attached_assets/generated_images/Pearl_necklace_product_photo_ead58243.png', category: 'necklaces' },
+            { id: 6, name: 'Silver Statement Piece', price: 18000, image: 'attached_assets/attached_assets/generated_images/Silver_collection_showcase_285b27f3.png', category: 'necklaces' },
+            { id: 7, name: 'Classic Gold Earrings', price: 22000, image: 'attached_assets/attached_assets/generated_images/Gold_earrings_product_photo_c96c321e.png', category: 'earrings' },
+            { id: 8, name: 'Designer Diamond Ring', price: 95000, image: 'attached_assets/attached_assets/generated_images/Diamond_ring_product_photo_f293ef10.png', category: 'rings' }
+        ];
+
+        let filteredProducts = [...products];
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        ${product.isNew ? '<span class="badge badge-new">New</span>' : ''}
+                        <div class="product-actions">
+                            <button class="btn-icon" onclick="quickView(${product.id})" aria-label="Quick view ${product.name}">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="btn btn-sm add-to-cart" onclick="addToCart(${product.id})" aria-label="Add ${product.name} to cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">₹${product.price.toLocaleString()}</p>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('productCount').textContent = `${filteredProducts.length} products`;
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.checkbox-label input').forEach(checkbox => {
+            checkbox.addEventListener('change', applyFilters);
+        });
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('priceRange').addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('priceValue').textContent = value === 100000 ? 'All' : `₹${value.toLocaleString()}`;
+            applyFilters();
+        });
+
+        function applyFilters() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const maxPrice = parseInt(document.getElementById('priceRange').value);
+            const selectedCategories = Array.from(document.querySelectorAll('.checkbox-label input:checked')).map(cb => cb.value);
+
+            filteredProducts = products.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(searchQuery);
+                const matchesPrice = maxPrice === 100000 || product.price <= maxPrice;
+                const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+                return matchesSearch && matchesPrice && matchesCategory;
+            });
+
+            renderProducts();
+        }
+
+        // Sorting functionality
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            const sortBy = e.target.value;
+            filteredProducts.sort((a, b) => {
+                switch(sortBy) {
+                    case 'price-low':
+                        return a.price - b.price;
+                    case 'price-high':
+                        return b.price - a.price;
+                    case 'newest':
+                        return b.isNew ? 1 : -1;
+                    case 'popular':
+                        // For demo purposes, randomize popularity
+                        return Math.random() - 0.5;
+                    default:
+                        return 0;
+                }
+            });
+            renderProducts();
+        });
+
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('priceRange').value = 100000;
+            document.getElementById('priceValue').textContent = 'All';
+            document.getElementById('sortSelect').value = 'newest';
+            document.querySelectorAll('.checkbox-label input').forEach(cb => cb.checked = false);
+            filteredProducts = [...products];
+            renderProducts();
+        });
+
+        // Quick view functionality
+        function quickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            // Create modal if it doesn't exist
+            let modal = document.getElementById('quickViewModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'quickViewModal';
+                modal.className = 'modal';
+                document.body.appendChild(modal);
+            }
+
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>${product.name}</h3>
+                        <button class="close-modal" onclick="closeQuickView()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="product-modal-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-modal-info">
+                            <p class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                            <h2 class="product-name">${product.name}</h2>
+                            <p class="product-price">₹${product.price.toLocaleString()}</p>
+                            <button class="btn btn-primary" onclick="addToCart(${product.id}); closeQuickView()">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.style.display = 'flex';
+            
+            // Close on click outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeQuickView();
+                }
+            });
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickViewModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Cart functionality
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if product is already in cart
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            
+            // Show confirmation message
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = 'Product added to cart';
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function updateCartBadge() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.querySelector('.cart-badge');
+            if (badge) {
+                badge.textContent = total;
+            }
+        }
+
+        // Add styles for modal and toast
+        const styles = document.createElement('style');
+        styles.textContent = `
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(4px);
+            }
+
+            .modal-content {
+                background: var(--background);
+                padding: 2rem;
+                border-radius: 0.5rem;
+                max-width: 800px;
+                width: 90%;
+                position: relative;
+                color: var(--foreground);
+                border: 1px solid var(--border);
+            }
+
+            .modal-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+
+            .close-modal {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--foreground);
+                padding: 0.5rem;
+            }
+
+            .modal-body {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .product-modal-image {
+                aspect-ratio: 1;
+                overflow: hidden;
+                border-radius: 0.5rem;
+                background: var(--card);
+            }
+
+            .product-modal-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .product-modal-info {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .toast {
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                background: var(--primary);
+                color: var(--primary-foreground);
+                padding: 1rem 2rem;
+                border-radius: 0.5rem;
+                animation: slideIn 0.3s ease-out;
+                z-index: 1000;
+            }
+
+            @keyframes slideIn {
+                from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .modal-body {
+                    grid-template-columns: 1fr;
+                }
+            }
+        `;
+        document.head.appendChild(styles);
+
+        // Initialize cart badge on page load
+        updateCartBadge();
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>

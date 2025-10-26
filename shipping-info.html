@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information - House of Chic</title>
+    <meta name="description" content="Learn about our shipping policies, delivery times, and shipping costs at House of Chic.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="menu-icon">☰</span>
+                </button>
+                <h1 class="logo"><a href="index.html">House of Chic</a></h1>
+                
+                <nav class="nav" id="mainNav">
+                    <a href="collections.html" class="nav-link">Collections</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <a href="login.html" class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                    <a href="cart.html" class="icon-btn cart-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge">0</span>
+                    </a>
+                    <button class="icon-btn" id="themeToggle">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="section">
+        <div class="container">
+            <h1 class="section-title text-center">Shipping Information</h1>
+            
+            <div class="content-card">
+                <h2 class="card-title text-center">Free Shipping on Orders Above ₹10,000</h2>
+                <p class="text-center">We offer complimentary shipping on all orders above ₹10,000 within India. Experience luxury delivered to your doorstep.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="content-card">
+                    <h2 class="card-title">Metro Cities</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>Delivery Time:</strong> 3-5 business days
+                        </li>
+                        <li>
+                            <strong>Coverage:</strong> All major metropolitan areas
+                        </li>
+                        <li>
+                            <strong>Tracking:</strong> Real-time updates
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h2 class="card-title">Other Cities</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>Delivery Time:</strong> 5-7 business days
+                        </li>
+                        <li>
+                            <strong>Coverage:</strong> All state capitals & tier-2 cities
+                        </li>
+                        <li>
+                            <strong>Tracking:</strong> Daily updates
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h2 class="card-title">Remote Areas</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>Delivery Time:</strong> 7-10 business days
+                        </li>
+                        <li>
+                            <strong>Coverage:</strong> All other locations
+                        </li>
+                        <li>
+                            <strong>Tracking:</strong> Available
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="content-card">
+                    <h2 class="card-title">Shipping Costs</h2>
+                    <div class="size-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order Value</th>
+                                    <th>Shipping Cost</th>
+                                    <th>Delivery Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Below ₹10,000</td>
+                                    <td>Flat rate ₹250</td>
+                                    <td>Standard delivery</td>
+                                </tr>
+                                <tr>
+                                    <td>Above ₹10,000</td>
+                                    <td>Free</td>
+                                    <td>Standard delivery</td>
+                                </tr>
+                                <tr>
+                                    <td>Any amount</td>
+                                    <td>₹500 extra</td>
+                                    <td>Express (1-2 days)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h2 class="card-title">International Shipping</h2>
+                    <p>We currently ship to selected countries worldwide. International orders are carefully processed and tracked to ensure safe delivery.</p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>Processing Time:</strong> 1-2 business days
+                        </li>
+                        <li>
+                            <strong>Delivery Time:</strong> 7-14 business days
+                        </li>
+                        <li>
+                            <strong>Tracking:</strong> International tracking provided
+                        </li>
+                        <li>
+                            <strong>Documentation:</strong> All customs paperwork handled
+                        </li>
+                    </ul>
+                    <p class="mt-4">Please contact our customer service for specific country rates and delivery times.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2 class="card-title text-center">Need More Information?</h2>
+                <div class="grid grid-2">
+                    <div>
+                        <h3>Contact Customer Service</h3>
+                        <ul class="contact-list">
+                            <li>Email: support@houseofchic.com</li>
+                            <li>Phone: +91 1234567890</li>
+                            <li>Hours: Monday-Friday, 9:00 AM - 6:00 PM IST</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Quick Links</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="track-order.html">Track Your Order</a></li>
+                            <li><a href="returns-exchanges.html">Returns Policy</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4 footer-grid">
+                <div>
+                    <h3 class="footer-title"><a href="index.html">House of Chic</a></h3>
+                    <p class="footer-text">Exquisite handcrafted Indian Jewellery blending tradition with modern elegance.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/_houseofchic__" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="shipping-info.html">Shipping Info</a></li>
+                        <li><a href="returns-exchanges.html">Returns & Exchanges</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Subscribe for exclusive offers and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 House of Chic. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span class="payment-text">We accept:</span>
+                    <div class="payment-icons">
+                        <span>VISA</span>
+                        <span>Mastercard</span>
+                        <span>Paytm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

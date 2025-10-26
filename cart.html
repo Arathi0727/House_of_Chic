@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - House of Chic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .cart-items {
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 0.375rem;
+            background: var(--muted);
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-price {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--accent);
+        }
+        
+        .quantity-display {
+            min-width: 3rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--muted-foreground);
+            padding: 0.5rem;
+        }
+        
+        .remove-btn:hover {
+            color: var(--foreground);
+        }
+        
+        .cart-summary {
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.125rem;
+            font-weight: 600;
+            padding-top: 1rem;
+            margin-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo"><a href="index.html">House of Chic</a></h1>
+                <nav class="nav">
+                    <a href="collections.html" class="nav-link">Collections</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="login.html" class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                    <a href="cart.html" class="icon-btn cart-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge">0</span>
+                    </a>
+                    <button class="icon-btn" id="themeToggle">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="section-title" style="margin-top: 2rem;">Shopping Cart</h1>
+
+        <div id="cartContent"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4 footer-grid">
+                <div>
+                    <h3 class="footer-title"><a href="index.html">House of Chic</a></h3>
+                    <p class="footer-text">Exquisite handcrafted Indian Jewellery blending tradition with modern elegance.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/_houseofchic__" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="shipping-info.html">Shipping Info</a></li>
+                        <li><a href="returns-exchanges.html">Returns & Exchanges</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Subscribe for exclusive offers and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 House of Chic. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span class="payment-text">We accept:</span>
+                    <div class="payment-icons">
+                        <span>VISA</span>
+                        <span>Mastercard</span>
+                        <span>Paytm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cartContent');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <p class="text-muted" style="margin-bottom: 1rem;">Your cart is empty</p>
+                        <a href="collections.html" class="btn btn-primary" style="background: var(--primary); color: var(--primary-foreground);">Continue Shopping</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            const subtotal = cart.reduce((sum, item) => sum + parseFloat(item.price.replace(/[₹,]/g, '')) * item.quantity, 0);
+            const shipping = subtotal > 10000 ? 0 : 500;
+            const tax = subtotal * 0.03;
+            const total = subtotal + shipping + tax;
+            
+            container.innerHTML = `
+                <div class="cart-layout">
+                    <div class="cart-items">
+                        ${cart.map((item, index) => `
+                            <div class="cart-item">
+                                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                                <div class="cart-item-details">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <h3 class="cart-item-name">${item.name}</h3>
+                                        <button class="remove-btn" onclick="removeFromCart(${index})">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <p class="cart-item-price">${item.price}</p>
+                                    <div class="quantity-controls">
+                                        <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                                        <span class="quantity-display">${item.quantity}</span>
+                                        <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <h2 style="font-weight: 600; font-size: 1.25rem; margin-bottom: 1.5rem;">Order Summary</h2>
+                        <div class="summary-row">
+                            <span class="text-muted">Subtotal</span>
+                            <span>₹${subtotal.toLocaleString()}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="text-muted">Shipping</span>
+                            <span>${shipping === 0 ? 'Free' : '₹' + shipping.toLocaleString()}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="text-muted">Tax (3%)</span>
+                            <span>₹${tax.toLocaleString()}</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span>₹${total.toLocaleString()}</span>
+                        </div>
+                        <a href="checkout.html" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; background: var(--primary); color: var(--primary-foreground); display: block; text-align: center; text-decoration: none;">
+                            Proceed to Checkout
+                        </a>
+                        <a href="collections.html" class="btn btn-outline" style="width: 100%; margin-top: 0.75rem; background: var(--background); color: var(--foreground); border: 1px solid var(--border); display: block; text-align: center; text-decoration: none;">
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function updateQuantity(index, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity = Math.max(1, cart[index].quantity + change);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+            updateCartBadge();
+        }
+        
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+            updateCartBadge();
+        }
+        
+        renderCart();
+    </script>
+</body>
+</html>

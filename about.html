@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - House of Chic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-hero {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            margin-bottom: 5rem;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem 5rem;
+        }
+        
+        .about-content h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            color: var(--muted-foreground);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .values-section {
+            padding: 5rem 0;
+        }
+        
+        .value-card {
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(var(--primary), 0.1);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .value-description {
+            color: var(--muted-foreground);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo"><a href="index.html">House of Chic</a></h1>
+                <nav class="nav">
+                    <a href="collections.html" class="nav-link">Collections</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="login.html" class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                    <a href="cart.html" class="icon-btn cart-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge">0</span>
+                    </a>
+                    <button class="icon-btn" id="themeToggle">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-image">
+            <img src="attached_assets/attached_assets/generated_images/Model_wearing_Jewellery_1f43cbe9.png" alt="About House of Chic">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">About House of Chic</h1>
+            <p class="hero-subtitle">Where tradition meets contemporary elegance</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <div class="about-content">
+        <h2>Our Story</h2>
+        <p>Founded with a passion for preserving the rich heritage of Indian Jewellery craftsmanship, House of Chic has been creating exquisite pieces that tell stories of tradition, celebration, and timeless beauty. Our journey began with a simple belief: that Jewellery is not just an accessory, but an expression of identity, emotion, and heritage.</p>
+        
+        <p>Each piece in our collection is meticulously handcrafted by master artisans who have inherited centuries-old techniques passed down through generations. We work exclusively with certified precious metals and authentic gemstones, ensuring that every creation meets the highest standards of quality and authenticity.</p>
+        
+        <p>Today, House of Chic stands as a bridge between tradition and modernity, offering designs that honor our cultural heritage while embracing contemporary aesthetics. We take pride in being part of your most cherished moments and creating heirlooms that will be treasured for generations to come.</p>
+    </div>
+
+    <!-- Craftsmanship Section -->
+    <section class="section bg-card">
+        <div class="container">
+            <div class="grid grid-2 align-center">
+                <div class="image-container">
+                    <img src="attached_assets/attached_assets/generated_images/Artisan_crafting_Jewellery_5b57433d.png" alt="Artisan at work">
+                </div>
+                <div>
+                    <h2 class="section-title">Master Craftsmanship</h2>
+                    <p class="text-muted mb-4">Our artisans are the heart of House of Chic. With decades of experience and an unwavering commitment to excellence, they transform precious metals and gemstones into works of art.</p>
+                    <p class="text-muted">Every intricate detail, every delicate curve, and every sparkling stone is placed with precision and care, ensuring that each piece is truly one-of-a-kind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title text-center">Our Values</h2>
+            <div class="grid grid-4">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Passion for Craftsmanship</h3>
+                    <p class="value-description">Every piece is created with love and attention to the finest details.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Authenticity Guaranteed</h3>
+                    <p class="value-description">All our Jewellery is hallmarked and comes with certification.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Customer First</h3>
+                    <p class="value-description">Your satisfaction and trust are our highest priorities.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Timeless Elegance</h3>
+                    <p class="value-description">Designs that blend tradition with contemporary aesthetics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4 footer-grid">
+                <div>
+                    <h3 class="footer-title"><a href="index.html">House of Chic</a></h3>
+                    <p class="footer-text">Exquisite handcrafted Indian Jewellery blending tradition with modern elegance.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/_houseofchic__" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Customer Service</h4>
+                                        <ul class="footer-links">
+                        <li><a href="shipping-info.html">Shipping Info</a></li>
+                        <li><a href="returns-exchanges.html">Returns & Exchanges</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Subscribe for exclusive offers</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary" style="background: var(--primary); color: var(--primary-foreground);">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 House of Chic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
