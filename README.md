@@ -94,7 +94,7 @@ House of Chic is a sophisticated online jewellery boutique that offers an elegan
 ## 👤 Author
 
 - **Owner**: Arathi0727
-- **Contributor**:rahuldevmuraleedharan
+- **Contributor**: rahuldevmuraleedharan
 - **Repository**: [House_of_Chic](https://github.com/Arathi0727/House_of_Chic)
 
 ## 📞 Support
