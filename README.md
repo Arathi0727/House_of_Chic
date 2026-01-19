@@ -103,5 +103,8 @@ For support, please:
 - Submit issues through GitHub
 
 ---
+## License
 
+This project is licensed under the MIT License. See the LICENSE file for details.
+---
 © 2025 House of Chic. All Rights Reserved.
